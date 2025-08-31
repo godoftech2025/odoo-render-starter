@@ -7,4 +7,4 @@ COPY ./odoo.conf /etc/odoo/odoo.conf
 
 USER odoo
 
-CMD ["odoo", "-c", "/etc/odoo/odoo.conf"]
+CMD ["odoo", "-c", "/etc/odoo/odoo.conf", "-i", "base", "--without-demo=all"]
