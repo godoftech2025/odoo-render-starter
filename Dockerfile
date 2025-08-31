@@ -13,7 +13,7 @@ COPY ./addons /mnt/extra-addons
 
 # Copy your custom config (if you want custom odoo.conf)
 # Place it in ./config/odoo.conf
-COPY ./config/odoo.conf /etc/odoo/odoo.conf
+COPY ./odoo.conf /etc/odoo/odoo.conf
 
 # Give Odoo user permissions
 RUN chown -R odoo:odoo /mnt/extra-addons /etc/odoo
