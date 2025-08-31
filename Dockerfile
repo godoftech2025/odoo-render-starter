@@ -9,4 +9,6 @@ USER odoo
 
 # CMD ["odoo", "-c", "/etc/odoo/odoo.conf"]
 
-CMD ["odoo", "-c", "/etc/odoo/odoo.conf", "-i", "base"]
+# CMD ["odoo", "-c", "/etc/odoo/odoo.conf", "-i", "base"]
+
+CMD ["odoo", "-c", "/etc/odoo/odoo.conf", "-i", "base", "--without-demo=all"]
