@@ -13,7 +13,7 @@ COPY ./addons /mnt/extra-addons
 
 # Copy your custom config (if you want custom odoo.conf)
 # Place it in ./config/odoo.conf
-COPY ./odoo.conf /etc/odoo/odoo.conf
+# COPY ./odoo.conf /etc/odoo/odoo.conf
 
 # Give Odoo user permissions
 RUN chown -R odoo:odoo /mnt/extra-addons /etc/odoo
@@ -25,4 +25,5 @@ USER odoo
 EXPOSE 8069
 
 # Start Odoo server
-CMD ["odoo", "-c", "/etc/odoo/odoo.conf"]
+# CMD ["odoo", "-c", "/etc/odoo/odoo.conf"]
+CMD ["odoo", "--db_host=${HOST}", "--db_port=${PORT}", "--db_user=${USER}", "--db_password=${PASSWORD}"]
