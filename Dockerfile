@@ -19,9 +19,9 @@ USER odoo
 EXPOSE 8069
 
 # Start Odoo with your hardcoded DB config
-CMD ["odoo", 
-     "--db_host=dpg-d2q94mqdbo4c73btg8v0-a.oregon-postgres.render.com", 
-     "--db_port=5432", 
-     "--db_user=runzun", 
-     "--db_password=Ef4W6TaN8qqkLo5FPJyiui5X72l97nC9", 
+CMD ["odoo",
+     "--db_host=dpg-d2q94mqdbo4c73btg8v0-a.oregon-postgres.render.com",
+     "--db_port=5432",
+     "--db_user=runzun",
+     "--db_password=Ef4W6TaN8qqkLo5FPJyiui5X72l97nC9",
      "--db_name=runzun"]
