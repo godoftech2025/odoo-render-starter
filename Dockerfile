@@ -1,22 +1,16 @@
-# Use the official Odoo image (choose version you need)
+# Use official Odoo image
 FROM odoo:17.0
 
-# Install any extra dependencies if needed
+# Install any extra dependencies (optional)
 USER root
-RUN apt-get update && apt-get install -y \
-    nano vim curl \
-    && rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get install -y nano vim curl && rm -rf /var/lib/apt/lists/*
 
-# Copy your custom addons (if you have any)
-# Make sure ./addons exists in your repo
+# Copy custom addons if you have them
+# (comment this line if you don’t have an ./addons folder)
 COPY ./addons /mnt/extra-addons
 
-# Copy your custom config (if you want custom odoo.conf)
-# Place it in ./config/odoo.conf
-# COPY ./odoo.conf /etc/odoo/odoo.conf
-
-# Give Odoo user permissions
-RUN chown -R odoo:odoo /mnt/extra-addons /etc/odoo
+# Fix permissions
+RUN chown -R odoo:odoo /mnt/extra-addons || true
 
 # Switch back to odoo user
 USER odoo
@@ -24,6 +18,10 @@ USER odoo
 # Expose Odoo default port
 EXPOSE 8069
 
-# Start Odoo server
-# CMD ["odoo", "-c", "/etc/odoo/odoo.conf"]
-CMD ["odoo", "--db_host=${HOST}", "--db_port=${PORT}", "--db_user=${USER}", "--db_password=${PASSWORD}"]
+# Start Odoo with your hardcoded DB config
+CMD ["odoo", 
+     "--db_host=dpg-d2q94mqdbo4c73btg8v0-a.oregon-postgres.render.com", 
+     "--db_port=5432", 
+     "--db_user=runzun", 
+     "--db_password=Ef4W6TaN8qqkLo5FPJyiui5X72l97nC9", 
+     "--db_name=runzun"]
