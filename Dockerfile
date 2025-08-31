@@ -19,7 +19,7 @@ COPY ./addons /mnt/extra-addons
 COPY ./config/odoo.conf /etc/odoo/odoo.conf
 
 # Set permissions (important for Odoo to access files)
-RUN chown -R odoo:odoo /mnt/extra-addons /etc/odoo/odoo.conf
+# RUN chown -R odoo:odoo /mnt/extra-addons /etc/odoo/odoo.conf
 
 # Switch back to odoo user
 USER odoo
